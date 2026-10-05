@@ -42,6 +42,7 @@
     {"name":"obj_Extras","order":6,"path":"objects/obj_Extras/obj_Extras.yy",},
     {"name":"obj_GOManager","order":1,"path":"objects/obj_GOManager/obj_GOManager.yy",},
     {"name":"obj_GOStatic","order":2,"path":"objects/obj_GOStatic/obj_GOStatic.yy",},
+    {"name":"obj_Intruso","order":13,"path":"objects/obj_Intruso/obj_Intruso.yy",},
     {"name":"obj_Music","order":8,"path":"objects/obj_Music/obj_Music.yy",},
     {"name":"obj_NuevoJuego","order":2,"path":"objects/obj_NuevoJuego/obj_NuevoJuego.yy",},
     {"name":"obj_Opciones","order":5,"path":"objects/obj_Opciones/obj_Opciones.yy",},

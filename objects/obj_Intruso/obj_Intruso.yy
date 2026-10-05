@@ -1,18 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"obj_GOManager",
+  "%Name":"obj_Intruso",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":2,"eventType":2,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_GOManager",
+  "name":"obj_Intruso",
   "overriddenProperties":[],
   "parent":{
-    "name":"Animatronicos",
-    "path":"folders/Objetos/Camaras/Animatronicos.yy",
+    "name":"Objetos",
+    "path":"folders/Objetos.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_BS",
-    "path":"sprites/spr_BS/spr_BS.yy",
+    "name":"spr_PM10L",
+    "path":"sprites/spr_PM10L/spr_PM10L.yy",
   },
   "spriteMaskId":null,
   "visible":true,
