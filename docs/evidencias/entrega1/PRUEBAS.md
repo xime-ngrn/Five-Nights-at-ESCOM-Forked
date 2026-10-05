@@ -19,11 +19,31 @@ ver nota en `.github/workflows/pr-quality-gate.yml`).
 
 ## Estado de la Noche 2 (personaje nuevo + jumpscare)
 
-Si el tiempo alcanzó para esa parte del alcance, agreguen aquí 1-2 casos adicionales:
-alcanzar la oficina sin vigilar la cámara del personaje nuevo (dispara jumpscare →
-`GameOver`), y vigilarlo constantemente (no avanza). Si no alcanzó el tiempo, dejen una
-nota aquí explicando que quedó para la siguiente entrega — eso no se penaliza, omitirlo sin
-documentar sí.
+Implementado por Jose Abel Reyes Castellanos: `obj_Intruso` (mecánica de vigilancia de
+cámara) y el `case 2` correspondiente en `obj_GOManager` (Crear, Alarma 0, Alarma 1) para
+su jumpscare. Evidencia del desarrollo (código agregado y colocación en la sala `N2`):
+
+![Instancia de obj_Intruso colocada en la sala N2](night2-01-room-n2-intruso-colocado.png)
+
+*`obj_Intruso` colocado en la sala N2, junto al enemigo existente de la Noche 1.*
+
+![case 2 agregado al evento Crear de obj_GOManager](night2-02-gomanager-crear-case2.png)
+
+*Evento Crear de `obj_GOManager`, ya convertido a código, con el `case 2` nuevo junto al
+`case 1` original (sin modificar).*
+
+![case 2 agregado a Alarma 0 de obj_GOManager](night2-03-gomanager-alarma0-case2.png)
+
+*Alarma 0 de `obj_GOManager` con el `case 2` nuevo.*
+
+![case 2 agregado a Alarma 1 de obj_GOManager](night2-04-gomanager-alarma1-case2.png)
+
+*Alarma 1 de `obj_GOManager` con el `case 2` nuevo.*
+
+**Pendiente:** correr la prueba de juego completa (alcanzar el Game Over sin vigilar la
+cámara de `obj_Intruso`, y verificar que vigilarla constantemente evita que avance) y
+documentar el resultado en la tabla de arriba — esto quedó para completarse antes de pasar
+el PR a "Ready for review".
 
 ## Hallazgos
 
