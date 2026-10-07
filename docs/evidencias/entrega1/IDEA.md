@@ -10,80 +10,45 @@
 
 ---
 
-## 1. Ruta elegida y motivo
+## 1.1 Ruta elegida y motivo
 
-**Ruta:** FiveNightsAtESCOM (proyecto realizado con GameMaker, con exportación a Android).
+* **Ruta elegida y motivo:** 
+  * *Ruta:* Productividad y Colaboración Académica.
+  * *Motivo:* Facilitar la organización de equipos de trabajo universitarios para evitar la desorganización, la duplicidad de tareas y los retrasos en las entregas de proyectos escolares.
+* **Usuario y contexto:** 
+  * *Quién:* Estudiantes universitarios y miembros de equipos de desarrollo o proyectos académicos.
+  * *Dónde y cuándo:* Desde sus teléfonos celulares, en cualquier momento y lugar, ya sea durante las clases presenciales, reuniones de equipo a distancia o antes de la fecha límite de entrega de una tarea.
+* **Problema observable:** Los estudiantes universitarios frecuentemente enfrentan dificultades para coordinar proyectos en equipo debido a la falta de un seguimiento claro de pendientes, lo que provoca que las tareas se concentren en una sola persona o se entreguen fuera de tiempo.
+* **Alternativa actual:** Uso de chats grupales de mensajería instantánea (como WhatsApp) donde los acuerdos se pierden, o bien herramientas de escritorio complejas (como Trello o Jira en versión web) que no están optimizadas para consultas rápidas desde el celular.
+* **Tarea principal del usuario:** Crear un equipo de trabajo, agregar tareas con fechas límite y actualizar el estatus de sus pendientes (*Pendiente, En Proceso, Terminado*).
+* **Criterio de éxito:** El usuario puede crear una nueva tarea dentro de su proyecto y cambiar su estatus en menos de 30 segundos desde la interfaz móvil.
+* **Alcance de la primera versión (MVP):** 
+  * *Entra:* Autenticación local de usuario, creación de proyectos y tableros de tareas, asignación de estados (*Pendiente, En Proceso, Terminado*) y establecimiento de fechas límite.
+  * *Se aplaza de forma deliberada:* Notificaciones push en tiempo real vía servidores externos, chat integrado dentro de la aplicación y sincronización avanzada en la nube con múltiples dispositivos.
 
-**Motivo:** Para la elección del proyecto, nos atrajo la propuesta de modificar un videojuego móvil mundialmente conocido para darle un toque personal sobre nuestra identidad politécnica. A su vez, el aprender cómo se realiza el desarrollo de los módulos y la lógica detrás para que estos juegos lleguen a tener cinemáticas, tramas y desarrollo de niveles.
+## 1.2 Material visual de la idea
 
-El proyecto ya tiene una noche jugable completa (que incluye cámaras, láser, batería, reloj y condición de victoria/derrota), lo que nos permite concentrarnos en extenderlo en lugar de construir la base desde cero, buscando implementar funcionalidades nuevas que abarquen la idea original del juego, ir pasando noche por noche hasta llegar al final.
+* **Bosquejos de pantallas principales (Mockups conceptuales):**
+  1. *Pantalla de Inicio / Tablero de Tareas:* 
+  2. *Pantalla de Detalle / Creación de Tarea:* 
+  3. *Pantalla de Perfil / Selección de Proyecto:* 
+* **Diagrama del recorrido del usuario (User Flow):**
+  * `Apertura de la App` $\rightarrow$ `Pantalla Principal (Lista de Proyectos)` $\rightarrow$ `Selección de Proyecto` $\rightarrow$ `Visualización de Tablero de Tareas` $\rightarrow$ `Creación o Edición de Tarea` $\rightarrow$ `Guardado y Actualización de Estatus` $\rightarrow$ `Fin de la tarea principal`.
+* **Estados alternativos:**
+  * *Carga:* Indicador circular centrado con el texto *"Cargando tus tareas..."* al abrir un proyecto.
+  * *Lista vacía:* Mensaje visual que indica *"No hay tareas creadas en este proyecto. ¡Agrega la primera!"* con un botón de acción.
+  * *Datos inválidos:* Alerta en color rojo al intentar guardar una tarea con el campo de título vacío o una fecha límite retroactiva.
 
-## 2. Problema en una frase
+## 1.3 Historia de usuario y criterio de aceptación
 
-Un estudiante que juega en sus ratos libres pierde todo su avance al cerrar el juego y,
-al terminar la Noche 1, no tiene más contenido que jugar.
+* **Historia de usuario principal:**
+  > **Como** estudiante universitario integrante de un equipo de proyecto,  
+  > **quiero** agregar y actualizar el estatus de las tareas asignadas dentro de la aplicación móvil,  
+  > **para** mantener a mis compañeros informados sobre el avance y cumplir con la fecha de entrega.
 
-> Evidencia en el código base: el botón **Continuar** (`obj_Continuar`) siempre manda a la Noche 1 (`room_goto(N1)`), no existe ningún guardado, y las pantallas `Opciones` y `Extras` no tienen código.
+* **Criterio de aceptación:**
+  > **Dado** que el usuario se encuentra dentro del tablero de tareas de su proyecto,  
+  > **cuando** presiona el botón de añadir tarea, llena los campos requeridos (título y fecha límite) y confirma la acción,  
+  > **entonces** la nueva tarea aparece reflejada inmediatamente en la lista con el estatus de "Pendiente".
 
-## 3. Usuario y contexto
-
-* **Quién:** estudiante de la ESCOM, de 18 a 25 años, que conoce los espacios de la escuela.
-* **Dónde:** en su teléfono Android, en la escuela o en el transporte.
-* **Cuándo:** en tiempos muertos de 10 a 15 minutos (entre clases, en el metro o el camión).
-
-## 4. Alternativa actual
-
-Hoy el usuario tiene que jugar la Noche 1 desde el principio cada vez que abre el juego,
-o jugar otro juego del género (por ejemplo, la saga original) que no está ambientado en ESCOM.
-
-## 5. Tarea principal
-
-Sobrevivir una noche completa (de 10 PM a 6 AM en el reloj del juego) y que, al terminar o volver a abrir la aplicación, **Continuar** lo lleve directamente a la siguiente noche desbloqueada.
-
-## 6. Criterio de éxito
-
-* Al reabrir la app, **Continuar** lleva a la noche correcta en el 100 % de las pruebas de la matriz [`docs/PRUEBAS.md`](PRUEBAS.md).
-* Al menos (4 de 5) personas de prueba completan la Noche 1 en **3** intentos o menos.
-* La noche siguiente (noche 2) es perceptiblemente más difícil, según (4 de 5) personas de prueba.
-* En la noche 2 se visualiza un personaje nuevo, donde el personaje avanza si no lo miras en su cámara durante cierto tiempo.
-
-## 7. Alcance de la primera versión
-
-| Entra en la v1 | Archivo(s) base que se tocarían |
-|---|---|
-| Guardado de la noche alcanzada en el dispositivo (`save.ini`) | `obj_WinManager`, `obj_Coco` |
-| Botón **Continuar** funcional: lleva a la Noche 2 si hay partida guardada; si no, se muestra deshabilitado | `obj_Continuar` |
-| Noche 2 jugable reutilizando la oficina, con mayor dificultad de Prismoso | room `N2`, `obj_Culturales1`, `obj_PM` |
-| Nuevo personaje que aparece solo en la Noche 2, en 3–4 cámaras, que avanza si el jugador **no lo vigila** en su cámara | Objeto nuevo del personaje, `obj_GOManager` |
-| Jumpscare simple del nuevo personaje (sprite a pantalla completa, sacudida y sonido) | Objeto nuevo del personaje, room `GameOver` |
-
-## 8. Funciones aplazadas
-
-- Noches 3, 4 y 5.
-- Apariciones del nuevo personaje en más de 4 cámaras.
-- Animación completa de Game Over del nuevo personaje (secuencia de varios cuadros).
-- Pantalla de **Opciones** (volumen, brillo, idioma).
-- Pantalla de **Extras** (galería de personajes, créditos).
-
-**Motivo del aplazamiento:** priorizamos que el ciclo "jugar → ganar → guardar →
-continuar" funcione completo, y que la Noche 2 se sienta distinta gracias a un
-enemigo con una mecánica nueva, antes de agregar más noches o pantallas secundarias.
-
-## 9. Hipótesis pendiente de validar
-
-> **Estado: HIPÓTESIS SIN VALIDAR.** Todavía no tenemos evidencia real que la respalde. Queda pendiente hacer al menos 5 encuestas a estudiantes de la ESCOM.
-
-Creemos que los estudiantes de la ESCOM volverían a abrir el juego si este recordara
-su avance y la siguiente noche presentara un enemigo nuevo dentro del ambiente de la ESCOM que exige una estrategia distinta a la de la Noche 1, atrayendo su curiosidad y aportando un cambio a la dinámica del juego.
-
-## 10. Evidencia que sostiene la idea
-
-| Fecha | Método | Resultado real |
-|---|---|---|
-| 29/09/2026 | Estudiante de 6to semestre juega la noche 1 del juego base y responde 2 preguntas: ¿Volverías a jugarlo mañana? ¿Qué te haría continuar? |  |
-
-## 11. Uso de asistentes de IA
-
-| Herramienta | Parte del trabajo |
-|---|---|
-| Claude (Anthropic) | Creación del borrador de la estructura de esta ficha y revisión del código base |
+* **Verificabilidad:** Cualquier evaluador puede abrir la aplicación, navegar a un proyecto, crear una tarea con datos válidos y comprobar de manera visual que esta se añade de forma correcta al tablero.
