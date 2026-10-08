@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_PM10L",
-    "path":"sprites/spr_PM10L/spr_PM10L.yy",
+    "name":"spr_Intruso",
+    "path":"sprites/spr_Intruso/spr_Intruso.yy",
   },
   "spriteMaskId":null,
   "visible":true,

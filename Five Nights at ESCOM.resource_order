@@ -587,6 +587,7 @@
     {"name":"spr_incense_smoke_trail_7","order":14,"path":"sprites/spr_incense_smoke_trail_7/spr_incense_smoke_trail_7.yy",},
     {"name":"spr_incense_smoke_trail_8","order":15,"path":"sprites/spr_incense_smoke_trail_8/spr_incense_smoke_trail_8.yy",},
     {"name":"spr_incense_smoke_trail_9","order":16,"path":"sprites/spr_incense_smoke_trail_9/spr_incense_smoke_trail_9.yy",},
+    {"name":"spr_Intruso","order":12,"path":"sprites/spr_Intruso/spr_Intruso.yy",},
     {"name":"spr_lightning_bolt_10","order":1,"path":"sprites/spr_lightning_bolt_10/spr_lightning_bolt_10.yy",},
     {"name":"spr_lightning_bolt_11","order":2,"path":"sprites/spr_lightning_bolt_11/spr_lightning_bolt_11.yy",},
     {"name":"spr_lightning_bolt_12","order":3,"path":"sprites/spr_lightning_bolt_12/spr_lightning_bolt_12.yy",},
