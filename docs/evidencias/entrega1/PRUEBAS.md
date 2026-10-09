@@ -5,7 +5,7 @@ abra). Casos ejecutados sobre un build local (GameMaker no compila en CI para es
 ver nota en `.github/workflows/pr-quality-gate.yml`).
 
 **SHA base:** `7ab6b0399ff609349ae73159be7901c03eb799ae`
-**SHA probado:** `7497a31feed269ddcda29e09d8cc966f28ea0aa9`
+**SHA probado:** `66be57f` (incluye sistema de cámaras de N2 y ajuste de dificultad a 10s/8 cámaras)
 **Dispositivo/entorno:** macOS (Apple Silicon), GameMaker IDE v2026.0.0.16, Runtime v2026.0.0.23
 
 | ID | Tipo | Autor / fecha | Precondiciones | Pasos | Esperado | Real | Estado | Evidencia |
@@ -16,7 +16,8 @@ ver nota en `.github/workflows/pr-quality-gate.yml`).
 | NAV-04 | Navegación / estado | [Nombre] / [fecha] | Noche 1 recién superada (progreso guardado) | 1. Ganar Noche 1. 2. Cerrar la app por completo. 3. Reabrir la app. 4. Tocar "Continuar". | El progreso persiste tras cerrar la app: "Continuar" sigue habilitado y lleva a Noche 2. | [PENDIENTE] | [PENDIENTE] | [captura] |
 | A11Y-05 | Accesibilidad | [Nombre] / [fecha] | Menú principal visible | 1. Medir el área táctil del botón "Continuar" en ambos estados. 2. Verificar contraste del estado deshabilitado contra el fondo. | El botón mantiene un área táctil ≥ al resto de los botones del menú; el estado deshabilitado es distinguible pero legible (no desaparece). | [PENDIENTE] | [PENDIENTE] | [captura] |
 | COMPAT-06 | Entorno / compatibilidad | Jose Abel Reyes Castellanos / 2026-10-08 | — | Registrar versión de GameMaker Runtime, dispositivo/emulador y SO usados para correr el build. | Build corre sin errores de compilación ni crashes al cargar `N2` o `GameOver`. | Corrió sin errores de compilación; se jugó Noche 1 y se llegó a N2 y a GameOver sin crashes (macOS, GameMaker Runtime v2026.0.0.23). | Aprobado | — |
-| RF-07 | Ruta feliz (Intruso) | Jose Abel Reyes Castellanos / 2026-10-08 | En la sala N2, con `obj_Intruso` recién colocado | 1. Llegar a N2 (vía "Continuar"). 2. No vigilar ninguna cámara durante ~20 segundos (4 ciclos de 5s). | Se dispara el jumpscare de `obj_Intruso` (case 2 de `obj_GOManager`) y aparece la pantalla de Game Over. | Confirmado: tras ~20s sin vigilar cámaras, apareció el jumpscare y la pantalla de Game Over, tal como se diseñó. | Aprobado | [night2-05](night2-05-qa-n2-sin-vigilar-camara.png) / [night2-06](night2-06-qa-jumpscare-gameover.png) |
+| RF-07 | Ruta feliz (Intruso) | Jose Abel Reyes Castellanos / 2026-10-08 | En la sala N2, con `obj_Intruso` recién colocado (prueba corrida con la configuración inicial: 5s por cámara, 4 cámaras máx.) | 1. Llegar a N2 (vía "Continuar"). 2. No vigilar ninguna cámara durante ~20 segundos (4 ciclos de 5s). | Se dispara el jumpscare de `obj_Intruso` (case 2 de `obj_GOManager`) y aparece la pantalla de Game Over. | Confirmado: tras ~20s sin vigilar cámaras, apareció el jumpscare y la pantalla de Game Over, tal como se diseñó. | Aprobado | [night2-05](night2-05-qa-n2-sin-vigilar-camara.png) / [night2-06](night2-06-qa-jumpscare-gameover.png) |
+| RF-08 | Ruta feliz (Intruso, vigilancia) | Jose Abel Reyes Castellanos / 2026-10-08 | Sala `N2` con el sistema de cámaras completo (capas de `Culturales1` copiadas), dificultad final: 10s por cámara, 8 cámaras máx. | 1. Entrar al panel de cámaras y seleccionar exactamente la cámara donde está `obj_Intruso`. 2. Mantenerla seleccionada cuando se cumpla cada revisión de 10s. 3. Salir del panel de cámaras (sin seleccionar su cámara) y esperar otra revisión de 10s. | Mientras se vigila su cámara exacta en el instante de cada revisión, `obj_Intruso` no avanza; al salir del panel de cámaras (aunque `global.CamaraActiva` siga apuntando a su cámara), sí avanza en la siguiente revisión. | Confirmado en ambos sentidos: vigilar su cámara exacta lo detiene; salir del panel de cámaras hace que vuelva a avanzar aunque la última cámara seleccionada coincida con la suya (requirió agregar el chequeo de `global.CameraUp` además de `global.CamaraActiva`). | Aprobado | — |
 
 ## Estado de la Noche 2 (personaje nuevo + jumpscare)
 
@@ -47,16 +48,21 @@ jumpscare de `obj_Intruso` se disparó correctamente y llevó a la pantalla de G
 
 ![Sala N2 con obj_Intruso, sin vigilar cámaras](night2-05-qa-n2-sin-vigilar-camara.png)
 
-*Sala N2 justo después de llegar por "Continuar" — sin fondo/ambientación todavía porque
-esa parte (sala y dificultad) es la pieza pendiente de Ximena.*
+*Sala N2 justo después de llegar por "Continuar", en una captura temprana (antes de que
+se agregara el sistema de cámaras de Ximena — ver capturas más recientes abajo).*
 
 ![Jumpscare y pantalla de Game Over](night2-06-qa-jumpscare-gameover.png)
 
 *Resultado tras ~20 segundos sin vigilar las cámaras: jumpscare y Game Over disparados por el `case 2` de `obj_GOManager`.*
 
-**Pendiente:** el caso en el que SÍ se vigila la cámara correcta constantemente (debe
-evitar que `obj_Intruso` avance) no se ha probado todavía — queda para completar antes de
-pasar el PR a "Ready for review".
+![Panel de cámaras completo con obj_Intruso visible en Cámara 02](night2-07-camara-sistema-con-intruso.png)
+
+*Sistema de cámaras de Ximena ya integrado: panel completo (19 cámaras, batería, minimapa) con `obj_Intruso` visible correctamente dentro de la Cámara 02 seleccionada — confirma que la mecánica de vigilancia (RF-08) funciona con el sistema de cámaras real, no solo en una sala vacía.*
+
+**Actualización:** el caso de vigilancia (ver RF-08) ya se probó y quedó aprobado. La
+sala `N2` ya tiene el sistema completo de cámaras/batería/UI (antes solo tenía el fondo
+negro, ver nota en la captura `night2-05`), y la dificultad final quedó en 10 segundos
+por cámara, hasta la Cámara 8, con `obj_PM` (enemigo de la Noche 1) también activo.
 
 ## Hallazgos
 
