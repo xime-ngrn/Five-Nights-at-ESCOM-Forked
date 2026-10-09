@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_6AM",
+  "%Name":"snd_IntrusoJS",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":9.375148,
+  "duration":3.4,
   "exportDir":"",
-  "name":"snd_6AM",
+  "name":"snd_IntrusoJS",
   "parent":{
     "name":"Efectos de Sonido",
     "path":"folders/Sonidos/Efectos de Sonido.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_6AM.ogg",
+  "soundFile":"snd_IntrusoJS.wav",
   "volume":1.0,
 }
