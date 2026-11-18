@@ -5,5 +5,9 @@ if (instance_exists(obj_Opciones) && (obj_Opciones.options_open || obj_Opciones.
 
 if (habilitado) {
     global.Noche = 2;
-    room_goto(N2);
+    // Detener la música del lobby antes de cambiar a la intro de la noche
+    if (audio_is_playing(snd_MM)) {
+        audio_stop_sound(snd_MM);
+    }
+    room_goto(N2_Inicio);
 }

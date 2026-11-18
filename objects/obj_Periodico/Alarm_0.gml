@@ -16,5 +16,6 @@ if(Noche1 == 0)
 	/// @DnDParent : 355B9749
 	/// @DnDArgument : "room" "N1"
 	/// @DnDSaveInfo : "room" "N1"
+	global.Noche = 1;
 	room_goto(N1);
 }

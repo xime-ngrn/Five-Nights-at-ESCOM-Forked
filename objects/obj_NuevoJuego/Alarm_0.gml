@@ -9,4 +9,7 @@ layer_sequence_destroy(tr2);
 /// @DnDHash : 6D542153
 /// @DnDArgument : "room" "Periodico"
 /// @DnDSaveInfo : "room" "Periodico"
+if (audio_is_playing(snd_MM)) {
+    audio_stop_sound(snd_MM);
+}
 room_goto(Periodico);

@@ -11,6 +11,8 @@ if (!global.game_paused) {
     // Reactivate before leaving so the room ends with a clean state.
     global.game_paused = false;
     instance_activate_all();
+    // Detener toda la música de la noche antes de regresar al lobby
+    audio_stop_all();
     room_goto(MenuPrincipal);
 } else if (_key || resume_request) {
     global.game_paused = false;

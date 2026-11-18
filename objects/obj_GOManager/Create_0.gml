@@ -7,14 +7,11 @@ var l410F1E72_0 = global.JSBy;
 switch(l410F1E72_0)
 {
     case 1:
-    InstGO = instance_create_layer(0, 0, "Estatica", obj_PMJS);
-
+        InstGO = instance_create_layer(0, 0, "Estatica", obj_PMJS);
         alarm_set(0, 620);
-
         break;
-     case 2:
+    case 2:
         InstGO = instance_create_layer(0, 0, "Estatica", obj_IntrusoJS);
-        alarm_set(0, 150); // 2.5 s de susto
+        alarm_set(0, 150); // Mantener el jumpscare propio de Intruso
         break;
-    break;
 }

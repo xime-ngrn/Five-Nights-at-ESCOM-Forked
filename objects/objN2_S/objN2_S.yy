@@ -1,9 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"objN2",
-  "eventList":[],
+  "%Name":"objN2_S",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":true,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"objN2",
+  "name":"objN2_S",
   "overriddenProperties":[],
   "parent":{
     "name":"Noches",
@@ -27,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_N1_1",
+    "path":"sprites/spr_N1_1/spr_N1_1.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

@@ -2,7 +2,7 @@
   "$GMSprite":"v2",
   "%Name":"spr_IntrusoGO",
   "bboxMode":0,
-  "bbox_bottom":719,
+  "bbox_bottom":713,
   "bbox_left":0,
   "bbox_right":1278,
   "bbox_top":0,
@@ -12,14 +12,14 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"96010ff1-d8ec-4d52-9e45-4aced8b9f3f2","name":"96010ff1-d8ec-4d52-9e45-4aced8b9f3f2","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"9fbbdc80-e8c1-4002-a3e6-5640b146346a","name":"9fbbdc80-e8c1-4002-a3e6-5640b146346a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":720,
+  "height":714,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"1cbf6f76-9ea7-4787-915f-d6cf4321ef94","blendMode":0,"displayName":"default","isLocked":false,"name":"1cbf6f76-9ea7-4787-915f-d6cf4321ef94","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"dd9c1076-30d6-477a-a531-ce63b3e126ab","blendMode":0,"displayName":"default","isLocked":false,"name":"dd9c1076-30d6-477a-a531-ce63b3e126ab","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_IntrusoGO",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"96010ff1-d8ec-4d52-9e45-4aced8b9f3f2","path":"sprites/spr_IntrusoGO/spr_IntrusoGO.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"ff5546c0-2858-4387-b9f4-2373e9d6e639","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"9fbbdc80-e8c1-4002-a3e6-5640b146346a","path":"sprites/spr_IntrusoGO/spr_IntrusoGO.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"e47d1ea1-8524-4f11-af62-cf6538259525","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
